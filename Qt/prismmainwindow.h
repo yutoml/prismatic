@@ -71,6 +71,7 @@ public slots:
     void setInterpolationFactorY();
     void setFilenameAtoms_fromDialog();
     void setFilenameOutput_fromLineEdit();
+    void setmaxFileSize_fromLineEdit();
     void setFilenameOutput_fromDialog();
     void setNumGPUs(const int &numGPUs);
     void setNumThreads(const int &numThreads);
@@ -232,7 +233,6 @@ public slots:
     bool checkProbesCalculated();
     void preventOverwrite();
     void flipOverwrite();
-    void setmaxFileSize(const float maxFileSize);
 
     // Collapse functions for each box
     void collapseSample();
@@ -260,6 +260,7 @@ protected:
     void setCellDimY(const int &dimY);
     void setCellDimZ(const int &dimZ);
     void setAlgo(const Prismatic::Algorithm algo);
+    void setmaxFileSize(const float maxFileSize);
 
 private:
     Ui::PRISMMainWindow *ui;
