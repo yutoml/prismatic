@@ -2542,8 +2542,8 @@ void PRISMMainWindow::checkInput_lineEdit_pixelSizeY()
 // maxFileSizeを変更する
 void PRISMMainWindow::setmaxFileSize_fromLineEdit()
 {
-    const float maxFileSize = float(this->ui->lineEdit_maxFileSize->text());
-    this->setFilenameOutput(filename * 1e9);
+    const float maxFileSize = this->ui->lineEdit_maxFileSize->text().toFloat();
+    this->setmaxFileSize(maxFileSize * 1e9);
     resetCalculation();
 }
 
