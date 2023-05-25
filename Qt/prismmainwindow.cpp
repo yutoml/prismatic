@@ -477,7 +477,7 @@ void PRISMMainWindow::updateDisplay()
     this->ui->lineEdit_batchGPU->setText(QString::fromStdString(ss.str()));
     ss.str("");
     ss << (this->meta->maxFileSize);
-    this->ui->lineEdit_maxFileSize->setText(QString::fromStdString((ss / 1e9).str()));
+    this->ui->lineEdit_maxFileSize->setText(QString::fromStdString((float(ss) / 1e9).str()));
     ss.str("");
 
     this->ui->lineEdit_scanWindowXMin->setCursorPosition(0);
