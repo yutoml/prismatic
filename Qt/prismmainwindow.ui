@@ -2335,7 +2335,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="btn_go">
+                <widget class="QPushButton" name="btn_STEMcalc">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
@@ -2357,7 +2357,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="btn_go_hrtem">
+                <widget class="QPushButton" name="btn_HRTEMcalc">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
@@ -5717,8 +5717,8 @@
                              </property>
                              <property name="font">
                               <font>
-                              <family>Roboto</family>
-                              <pointsize>10</pointsize>
+                               <family>Roboto</family>
+                               <pointsize>10</pointsize>
                               </font>
                              </property>
                             </widget>
