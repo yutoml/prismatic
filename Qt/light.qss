@@ -420,7 +420,8 @@ QScrollBar::sub-line:horizontal
     subcontrol-origin: margin;
 }
 
-QScrollBar::add-line:horizontal:hover,QScrollBar::add-line:horizontal:on
+QScrollBar::add-line:horizontal:hover,
+QScrollBar::add-line:horizontal:on
 {
     border-image: url(:/light/right_arrow.png);
     width: 1ex;
@@ -430,7 +431,8 @@ QScrollBar::add-line:horizontal:hover,QScrollBar::add-line:horizontal:on
 }
 
 
-QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on
+QScrollBar::sub-line:horizontal:hover, 
+QScrollBar::sub-line:horizontal:on
 {
     border-image: url(:/light/left_arrow.png);
     width: 1ex;
@@ -439,13 +441,15 @@ QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on
     subcontrol-origin: margin;
 }
 
-QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+QScrollBar::up-arrow:horizontal, 
+QScrollBar::down-arrow:horizontal
 {
     background: none;
 }
 
 
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+QScrollBar::add-page:horizontal, 
+QScrollBar::sub-page:horizontal
 {
     background: none;
 }
@@ -664,6 +668,11 @@ QPushButton:focus
 {
     color: black;
 }
+QPushButton:pressed
+{
+    background-color: qlineargradient(x1: 0.5, y1: 0.5 x2: 0.5, y2: 1, stop: 0 #bedfec, stop: 0.5 #b9dae7);
+    color: #31363B;
+}
 
 QComboBox
 {
@@ -681,6 +690,11 @@ QPushButton:checked
     border-color: #6A6969;
 }
 
+QPushButton:hover
+{
+    border: 0.1ex solid #3daef3;
+    color: #31363B;
+}
 QComboBox:hover,
 QAbstractSpinBox:hover,
 QLineEdit:hover,
@@ -1627,11 +1641,7 @@ QDoubleSpinBox::down-arrow:off
    border-image: url(:/light/down_arrow_disabled.png);
 }
 
-QPushButton:hover
-{
-    border: 0.1ex solid #3daef3;
-    color: #31363B;
-}
+
 
 QPushButton:focus
 {
@@ -1646,9 +1656,5 @@ QPushButton:focus:hover
 }
 
 QPushButton:focus:pressed,
-QPushButton:pressed
-{
-    background-color: qlineargradient(x1: 0.5, y1: 0.5 x2: 0.5, y2: 1, stop: 0 #bedfec, stop: 0.5 #b9dae7);
-    color: #31363B;
-}
+
 
