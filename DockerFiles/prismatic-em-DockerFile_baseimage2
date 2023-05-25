@@ -1,5 +1,5 @@
 # Create from here to handle all the CUDA Drivers 
-FROM nvidia/cuda:12.1.1-base-ubuntu22.04
+FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
 
 
 
@@ -80,3 +80,6 @@ ENV LD_LIBRARY_PATH=/usr/local/fftw/lib:$LD_LIBRARY_PATH
 # python
 ENV PYTHONPATH=/usr/local/lib/python3.10/dist-packages/:/usr/bin/local/:/usr/local/lib
 
+# Others
+ENV PATH=/usr/local/bin:$PATH \
+    CPLUS_INCLUDE_PATH=/usr/local/cuda/include:/usr/local/boost:/usr/local/fftw/include:/usr/local/hdf5/include:$CPLUS_INCLUDE_PATH \
