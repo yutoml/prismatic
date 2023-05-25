@@ -299,7 +299,7 @@ PRISMMainWindow::PRISMMainWindow(QWidget *parent) : QMainWindow(parent),
     connect(this->ui->checkBox_matrixRefocus, SIGNAL(toggled(bool)), this, SLOT(togglematrixRefocus()));
     connect(this->ui->checkBox_potential3D, SIGNAL(toggled(bool)), this, SLOT(togglePotential3D()));
     // maxFileSizeが設定されないのそもそも設定がない
-    connect(this->ui->lineEdit_maxFileSize, SIGNAL(editingFinished()), this, SLOT(updateMaxFileSize()));
+    connect(this->ui->lineEdit_maxFileSize, SIGNAL(editingFinished()), this, SLOT(setMaxFileSize()));
     // connect(this->ui->checkBox_occupancy, SIGNAL(toggled(bool)), this, SLOT(toggleOccupancy()));
     connect(this->ui->checkBox_NQS, SIGNAL(toggled(bool)), this, SLOT(toggleNyquist()));
     connect(this->ui->checkBox_sqrtIntensityPot, SIGNAL(toggled(bool)), this, SLOT(updatePotentialFloatImage()));

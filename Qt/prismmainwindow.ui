@@ -39,8 +39,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1125</width>
-         <height>1109</height>
+         <width>1119</width>
+         <height>1097</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -54,7 +54,7 @@
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="stem_sim">
                <attribute name="title">
@@ -64,7 +64,7 @@
                 <item>
                  <widget class="QTabWidget" name="tabWidget_2">
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="tab_potential">
                    <attribute name="title">
@@ -2369,6 +2369,7 @@
                  </property>
                  <property name="font">
                   <font>
+                   <family>Roboto</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -2405,7 +2406,7 @@
                <x>0</x>
                <y>0</y>
                <width>338</width>
-               <height>1093</height>
+               <height>1075</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -2953,8 +2954,8 @@
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>309</width>
-                      <height>274</height>
+                      <width>302</width>
+                      <height>335</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -2996,6 +2997,7 @@
                        </property>
                        <property name="font">
                         <font>
+                         <family>Roboto</family>
                          <pointsize>8</pointsize>
                         </font>
                        </property>
@@ -3506,6 +3508,7 @@
                         <widget class="QCheckBox" name="checkBox_potential3D">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -3518,6 +3521,7 @@
                         <widget class="QLabel" name="label_82">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -3539,6 +3543,7 @@
                          </property>
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -3717,8 +3722,8 @@
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>309</width>
-                      <height>398</height>
+                      <width>302</width>
+                      <height>465</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -4508,6 +4513,7 @@
                        </property>
                        <property name="font">
                         <font>
+                         <family>Roboto</family>
                          <pointsize>10</pointsize>
                         </font>
                        </property>
@@ -4698,6 +4704,7 @@
                         <widget class="QLabel" name="label_89">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4722,6 +4729,7 @@
                       <widget class="QCheckBox" name="checkBox_matrixRefocus">
                        <property name="font">
                         <font>
+                         <family>Roboto</family>
                          <pointsize>10</pointsize>
                         </font>
                        </property>
@@ -4794,8 +4802,8 @@
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>309</width>
-                      <height>179</height>
+                      <width>353</width>
+                      <height>192</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -4825,6 +4833,7 @@
                         <widget class="QLabel" name="label_30">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4847,6 +4856,7 @@
                         <widget class="QLabel" name="label_37">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4859,6 +4869,7 @@
                         <widget class="QLabel" name="label_19">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4921,6 +4932,7 @@
                         <widget class="QLabel" name="label_20">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4933,6 +4945,7 @@
                         <widget class="QLabel" name="label_38">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4965,6 +4978,7 @@
                         <widget class="QLabel" name="label_22">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -4977,6 +4991,7 @@
                         <widget class="QLabel" name="label_21">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -5009,6 +5024,7 @@
                         <widget class="QLabel" name="label_83">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -5021,6 +5037,7 @@
                         <widget class="QLabel" name="label_84">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -5033,6 +5050,7 @@
                         <widget class="QLabel" name="label_85">
                          <property name="font">
                           <font>
+                           <family>Roboto</family>
                            <pointsize>10</pointsize>
                           </font>
                          </property>
@@ -5055,12 +5073,6 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
                   </property>
                   <property name="maximumSize">
                    <size>
@@ -5106,9 +5118,9 @@
                     <property name="geometry">
                      <rect>
                       <x>0</x>
-                      <y>-123</y>
-                      <width>309</width>
-                      <height>332</height>
+                      <y>-203</y>
+                      <width>324</width>
+                      <height>395</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_44">
@@ -5553,6 +5565,7 @@
                             <widget class="QCheckBox" name="checkBox_crop4D">
                              <property name="font">
                               <font>
+                               <family>Roboto</family>
                                <pointsize>10</pointsize>
                               </font>
                              </property>
@@ -5567,6 +5580,7 @@
                               <widget class="QLabel" name="label_41">
                                <property name="font">
                                 <font>
+                                 <family>Roboto</family>
                                  <pointsize>10</pointsize>
                                 </font>
                                </property>
@@ -5576,7 +5590,11 @@
                               </widget>
                              </item>
                              <item>
-                              <widget class="QLineEdit" name="lineEdit_4Damax"/>
+                              <widget class="QLineEdit" name="lineEdit_4Damax">
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </widget>
                              </item>
                             </layout>
                            </item>
@@ -5640,6 +5658,7 @@
                             <widget class="QCheckBox" name="checkBox_saveSMatrix">
                              <property name="font">
                               <font>
+                               <family>Roboto</family>
                                <pointsize>10</pointsize>
                               </font>
                              </property>
@@ -5652,6 +5671,7 @@
                             <widget class="QCheckBox" name="checkBox_saveProbe">
                              <property name="font">
                               <font>
+                               <family>Roboto</family>
                                <pointsize>10</pointsize>
                               </font>
                              </property>
@@ -5666,6 +5686,7 @@
                           <widget class="QCheckBox" name="checkBox_saveComplex">
                            <property name="font">
                             <font>
+                             <family>Roboto</family>
                              <pointsize>10</pointsize>
                             </font>
                            </property>
@@ -5680,6 +5701,7 @@
                             <widget class="QLabel" name="label_43">
                              <property name="font">
                               <font>
+                               <family>Roboto</family>
                                <pointsize>10</pointsize>
                               </font>
                              </property>
@@ -5689,7 +5711,11 @@
                             </widget>
                            </item>
                            <item>
-                            <widget class="QLineEdit" name="lineEdit_maxFileSize"/>
+                            <widget class="QLineEdit" name="lineEdit_maxFileSize">
+                             <property name="text">
+                              <string>2</string>
+                             </property>
+                            </widget>
                            </item>
                           </layout>
                          </item>
@@ -6179,7 +6205,7 @@
      <x>0</x>
      <y>0</y>
      <width>1139</width>
-     <height>17</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
