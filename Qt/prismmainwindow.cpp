@@ -257,8 +257,8 @@ PRISMMainWindow::PRISMMainWindow(QWidget *parent) : QMainWindow(parent),
     connect(this->ui->radBtn_PRISM, SIGNAL(clicked(bool)), this, SLOT(setAlgo_PRISM()));
     connect(this->ui->radBtn_Multislice, SIGNAL(clicked(bool)), this, SLOT(setAlgo_Multislice()));
     connect(this->ui->btn_calcPotential, SIGNAL(clicked(bool)), this, SLOT(calculatePotential()));
-    connect(this->ui->btn_go, SIGNAL(clicked(bool)), this, SLOT(calculateAll()));
-    connect(this->ui->btn_go_hrtem, SIGNAL(clicked(bool)), this, SLOT(calculateAllHRTEM()));
+    connect(this->ui->btn_STEMcalc, SIGNAL(clicked(bool)), this, SLOT(calculateSTEM()));
+    connect(this->ui->btn_HRTEMcalc, SIGNAL(clicked(bool)), this, SLOT(calculateHRTEM()));
     connect(this->ui->lineEdit_slicemin, SIGNAL(editingFinished()), this, SLOT(updateSliders_fromLineEdits()));
     connect(this->ui->lineEdit_slicemax, SIGNAL(editingFinished()), this, SLOT(updateSliders_fromLineEdits()));
     connect(this->ui->slider_bothSlices, SIGNAL(valueChanged(int)), this, SLOT(moveBothPotentialSliders(int)));
@@ -1525,7 +1525,7 @@ void PRISMMainWindow::calculateAll()
     Prismatic::writeParamFile(*this->meta, get_default_parameter_filename());
 }
 
-void PRISMMainWindow::calculateAllHRTEM()
+void PRISMMainWindow::calculateHRTEM()
 {
     Prismatic::Algorithm stem_algo = this->meta->algorithm;
 
@@ -1533,6 +1533,20 @@ void PRISMMainWindow::calculateAllHRTEM()
     calculateAll();
 
     setAlgo(stem_algo);
+}
+
+void PRISMMainWindow::calculateSTEM()
+{
+    if (this->ui->radBtn_Multislice->checked)
+    {
+        setAlgo(Prismatic::Algorithm::Multislice);
+    }
+    else
+    {
+        setAlgo(Prismatic::Algorithm::PRISM);
+    }
+
+    calculateAll();
 }
 
 void PRISMMainWindow::preventOverwrite()

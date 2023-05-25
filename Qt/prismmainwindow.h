@@ -103,7 +103,8 @@ public slots:
     void setAlgo_Multislice();
     void calculatePotential();
     void calculateAll();
-    void calculateAllHRTEM();
+    void calculateHRTEM();
+    void calculateSTEM();
     void calculateProbe();
     void updatePotentialImage();
     void updatePotentialDisplay();
