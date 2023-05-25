@@ -688,8 +688,8 @@ void PRISMMainWindow::updateUCdims(const std::string &filename)
     else
     {
         this->setFilenameAtoms(filename);
-        ui->btn_go->setEnabled(true);
-        ui->btn_go_hrtem->setEnabled(true);
+        ui->btn_STEMcalc->setEnabled(true);
+        ui->btn_HRTEMcalc->setEnabled(true);
         ui->btn_calcPotential->setEnabled(true);
         this->setWindowTitle(QString::fromStdString(std::string("Prismatic (") + std::string(filename + std::string(")"))));
         if (uc_dims[0] > 0)
@@ -1537,7 +1537,7 @@ void PRISMMainWindow::calculateHRTEM()
 
 void PRISMMainWindow::calculateSTEM()
 {
-    if (this->ui->radBtn_Multislice->checked)
+    if (this->ui->radBtn_Multislice->isChecked())
     {
         setAlgo(Prismatic::Algorithm::Multislice);
     }
