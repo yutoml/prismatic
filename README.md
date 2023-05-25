@@ -13,7 +13,7 @@ Full documentation, installers, tutorials, etc may be found at [www.prism-em.com
 
 ### Fixing bugs
 
-* Changes to the theme should affect functional aspects.
+* Changing of the theme affects functional aspects.
   * Unable to input max filesize when dark theme is selected
 * Useless Console area
 * Useless PostProsess area
