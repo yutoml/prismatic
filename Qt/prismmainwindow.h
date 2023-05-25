@@ -98,6 +98,7 @@ public slots:
     void setE0_fromLineEdit();
     void setprobeStepX_fromLineEdit();
     void setprobeStepY_fromLineEdit();
+    void setmaxFileSize_fromLineEdit();
     void setAlgo_PRISM();
     void setAlgo_Multislice();
     void calculatePotential();
