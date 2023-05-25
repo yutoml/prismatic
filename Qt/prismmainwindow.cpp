@@ -299,7 +299,7 @@ PRISMMainWindow::PRISMMainWindow(QWidget *parent) : QMainWindow(parent),
     connect(this->ui->checkBox_matrixRefocus, SIGNAL(toggled(bool)), this, SLOT(togglematrixRefocus()));
     connect(this->ui->checkBox_potential3D, SIGNAL(toggled(bool)), this, SLOT(togglePotential3D()));
     // maxFileSizeが設定されないのそもそも設定がない
-    // connect(this->ui->lineEdit_maxFileSize, SIGNAL(editingFinished()), this, SLOT(updateMaxFileSize()));
+    connect(this->ui->lineEdit_maxFileSize, SIGNAL(editingFinished()), this, SLOT(updateMaxFileSize()));
     // connect(this->ui->checkBox_occupancy, SIGNAL(toggled(bool)), this, SLOT(toggleOccupancy()));
     connect(this->ui->checkBox_NQS, SIGNAL(toggled(bool)), this, SLOT(toggleNyquist()));
     connect(this->ui->checkBox_sqrtIntensityPot, SIGNAL(toggled(bool)), this, SLOT(updatePotentialFloatImage()));
@@ -475,6 +475,9 @@ void PRISMMainWindow::updateDisplay()
     ss.str("");
     ss << (this->meta->batchSizeTargetGPU);
     this->ui->lineEdit_batchGPU->setText(QString::fromStdString(ss.str()));
+    ss.str("");
+    ss << (this->meta->maxFileSize);
+    this->ui->lineEdit_maxFileSize->setText(QString::fromStdString((ss / 1e9).str()));
     ss.str("");
 
     this->ui->lineEdit_scanWindowXMin->setCursorPosition(0);
@@ -808,6 +811,13 @@ void PRISMMainWindow::setzSampling(const int &num)
         this->meta->zSampling = num;
         std::cout << "Setting number of subslices for 3D potential integration to " << num << std::endl;
     }
+    resetCalculation();
+}
+
+void PRISMMainWindow::setmaxFileSize(const float maxFileSize)
+{
+    std::cout << "Setting max file size to " << str(maxFileSize) << "(Bite)" << std::endl;
+    this->meta->maxFileSize = maxFileSize;
     resetCalculation();
 }
 
@@ -2528,6 +2538,15 @@ void PRISMMainWindow::checkInput_lineEdit_pixelSizeY()
     }
     ui->lineEdit_pixelSizeY->setText(QString::number(meta->realspacePixelSize[0]));
 }
+
+// maxFileSizeを変更する
+void PRISMMainWindow::setmaxFileSize_fromLineEdit()
+{
+    const float maxFileSize = float(this->ui->lineEdit_maxFileSize->text());
+    this->setFilenameOutput(filename * 1e9);
+    resetCalculation();
+}
+
 void PRISMMainWindow::saveCurrentOutputImage()
 {
     if (checkoutputArrayExists())
