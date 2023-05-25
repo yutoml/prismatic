@@ -29,7 +29,7 @@
 #include "prism_colormapper.h"
 namespace Ui
 {
-class PRISMMainWindow;
+    class PRISMMainWindow;
 }
 
 // forward declare the thread classes that run the work
@@ -128,7 +128,7 @@ public slots:
     void redrawImages();
     void saveCurrentOutputImage();
     void setStreamingMode(int);
-    //void toggleSaveProjectedPotential();
+    // void toggleSaveProjectedPotential();
     void enableOutputWidgets();
     void setprobe_defocus_fromLineEdit();
     void set_dfr_min_fromLineEdit();
@@ -164,7 +164,7 @@ public slots:
     void toggleSMatrixoutput();
     void toggleComplexoutput();
     void toggleProbeOutput();
-    //void toggleOccupancy();
+    // void toggleOccupancy();
     void toggleNyquist();
     void setscan_WindowXMin_fromLineEdit();
     void setscan_WindowXMax_fromLineEdit();
@@ -231,8 +231,9 @@ public slots:
     bool checkProbesCalculated();
     void preventOverwrite();
     void flipOverwrite();
+    void setmaxFileSize(const float maxFileSize);
 
-    //Collapse functions for each box
+    // Collapse functions for each box
     void collapseSample();
     void collapseSimulation();
     void collapseStem();
@@ -240,8 +241,7 @@ public slots:
     void collapseOutput();
     void collapseComputational();
 
-
-    //Change themes functions
+    // Change themes functions
     void lightField();
     void darkField();
 
@@ -282,7 +282,7 @@ private:
     bool potentialReady;
     bool ScompactReady;
     bool outputReady;
-    //bool saveProjectedPotential;
+    // bool saveProjectedPotential;
     bool probeSetupReady;
     bool potentialArrayExists;
     bool outputArrayExists;
@@ -296,8 +296,7 @@ private:
     bool maxWindowYSet;
     bool overwriteCheck = false;
 
-
-    //collapse funtction variables
+    // collapse funtction variables
     bool sampleClosed = true;
     bool simulationClosed = true;
     bool stemClosed = true;
@@ -305,14 +304,14 @@ private:
     bool outputClosed = true;
     bool computationalClosed = true;
 
-    //Height each box gets
-    //Computational and Output boxes both have unique sizes
+    // Height each box gets
+    // Computational and Output boxes both have unique sizes
     int boxOpen = 260;
     int boxClosed = 20;
     int scrollOpen = 230;
 
     int animSpeed = 600;
-    
+
     QImage potentialImage;
     QImage probeImage;
     QImage probeImage_pr;
@@ -325,8 +324,8 @@ private:
     QImage outputImage_HRTEM;
 
     Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> potentialImage_float;
-    Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> outputImage_float; 
-    Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> outputImage_HRTEM_float; 
+    Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> outputImage_float;
+    Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> outputImage_HRTEM_float;
     Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> probeImage_pr_float;
     Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> probeImage_pk_float;
     Prismatic::Array2D<PRISMATIC_FLOAT_PRECISION> probeImage_mr_float;
