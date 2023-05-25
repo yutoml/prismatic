@@ -1527,6 +1527,7 @@ void PRISMMainWindow::calculateAll()
 
 void PRISMMainWindow::calculateHRTEM()
 {
+    std::cout << "Starting HRTEM Calculation " << std::endl;
     Prismatic::Algorithm stem_algo = this->meta->algorithm;
 
     this->meta->algorithm = Prismatic::Algorithm::HRTEM;
@@ -1537,12 +1538,15 @@ void PRISMMainWindow::calculateHRTEM()
 
 void PRISMMainWindow::calculateSTEM()
 {
+    std::cout << "Starting STEM Calculation " << std::endl;
     if (this->ui->radBtn_Multislice->isChecked())
     {
+        std::cout << "ALGORITHM : MULTISLICE " << std::endl;
         setAlgo(Prismatic::Algorithm::Multislice);
     }
     else
     {
+        std::cout << "ALGORITHM : PRISM " << std::endl;
         setAlgo(Prismatic::Algorithm::PRISM);
     }
 
