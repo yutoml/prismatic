@@ -22,19 +22,19 @@ RUN apt-get update -y && \
     mkdir -p /var/tmp && tar -x -f /var/tmp/boost_1_82_0.tar.bz2 -C /var/tmp -j && \
     cd /var/tmp/boost_1_82_0 && ./bootstrap.sh --prefix=/usr/local/boost --without-libraries=python && \
     ./b2 -j$(nproc) -q install && \
-    rm -rf /var/tmp/boost_1_82_0.tar.bz2 /var/tmp/boost_1_82_0 && \
+    rm -rf /var/tmp/boost_1_82_0.tar.bz2 /var/tmp/boost_1_82_0
 
-    # CMake version 3.26.4
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+# CMake version 3.26.4
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     make \
     wget && \
     mkdir -p /var/tmp && wget -q -nc --no-check-certificate -P /var/tmp https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-x86_64.sh && \
     mkdir -p /usr/local && \
-    /bin/sh /var/tmp/cmake-3.26.4-Linux-x86_64.sh --prefix=/usr/local --skip-license && \
-    rm -rf /var/tmp/cmake-3.26.4-Linux-x86_64.sh && \
+    /bin/sh /var/tmp/cmake-3.26.4-linux-x86_64.sh --prefix=/usr/local --skip-license && \
+    rm -rf /var/tmp/cmake-3.26.4-linux-x86_64.sh
 
-    # HDF5 version 1.14.1
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+# HDF5 version 1.14.1
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     bzip2 \
     file \
     make \
@@ -45,10 +45,10 @@ RUN apt-get update -y && \
     cd /var/tmp/hdf5-1.14.1-2 &&   ./configure --prefix=/usr/local/hdf5 --enable-cxx --enable-threadsafe --enable-unsupported && \
     make -j$(nproc) && \
     make -j$(nproc) install && \
-    rm -rf /var/tmp/hdf5-1.14.1-2 /var/tmp/hdf5-1.14.1-2.tar.bz2 && \ 
+    rm -rf /var/tmp/hdf5-1.14.1-2 /var/tmp/hdf5-1.14.1-2.tar.bz2 
 
-    # FFTW version 3.3.10
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+# FFTW version 3.3.10
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     file \
     make \
     wget && \
@@ -57,10 +57,10 @@ RUN apt-get update -y && \
     cd /var/tmp/fftw-3.3.10 &&   ./configure --prefix=/usr/local/fftw --enable-openmp --enable-float --enable-shared --enable-sse2 --enable-threads && \
     make -j$(nproc) && \
     make -j$(nproc) install && \
-    rm -rf /var/tmp/fftw-3.3.10 /var/tmp/fftw-3.3.10.tar.gz && \
+    rm -rf /var/tmp/fftw-3.3.10 /var/tmp/fftw-3.3.10.tar.gz
 
-    # python3
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+# python3
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     python3-dev \
     python3-pip && \
     rm -rf /var/lib/apt/lists/*
