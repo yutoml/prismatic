@@ -816,7 +816,7 @@ void PRISMMainWindow::setzSampling(const int &num)
 
 void PRISMMainWindow::setmaxFileSize(const float maxFileSize)
 {
-    std::cout << "Setting max file size to " << str(maxFileSize) << "(Bite)" << std::endl;
+    std::cout << "Setting max file size to " << maxFileSize << "(Bite)" << std::endl;
     this->meta->maxFileSize = maxFileSize;
     resetCalculation();
 }
