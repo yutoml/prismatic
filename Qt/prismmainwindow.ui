@@ -5715,6 +5715,12 @@
                              <property name="text">
                               <string>2</string>
                              </property>
+                             <property name="font">
+                              <font>
+                              <family>Roboto</family>
+                              <pointsize>10</pointsize>
+                              </font>
+                             </property>
                             </widget>
                            </item>
                           </layout>
