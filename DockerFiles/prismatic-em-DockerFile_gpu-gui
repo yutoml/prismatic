@@ -1,4 +1,4 @@
-FROM yutoml/prismatic_base:1.0
+FROM yutoml/prismatic_base:1.1
 
 RUN apt-get update -y && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
