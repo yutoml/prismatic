@@ -1,5 +1,8 @@
 # Prismatic
 
+This is a fork of [Prismatic](http://www.prism-em.com).
+The aims of this fork are fixing bugs and improve views.
+
 Full documentation, installers, tutorials, etc may be found at [www.prism-em.com](http://www.prism-em.com)
 
 ## The Aim of This fork
