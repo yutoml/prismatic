@@ -26,14 +26,14 @@ RUN groupadd -g $GID $GROUPNAME && \
 USER $USERNAME
 ENV PATH=/bin:/sbin:/usr/bin:/opt/conda/bin:$PATH
 
-RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/user/.profile &&\
+RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/user/.bashrc &&\
     echo "export PATH=/bin:/sbin:/usr/bin:/opt/conda/bin:$PATH" >> /home/user/.bashrc &&\
-    echo "/opt/conda/bin/conda activate py4dstem" >> /home/user/.profile &&\
-    #/opt/conda/bin/conda init bash &&\
-    #conda update -n base -c defaults conda && \
-    conda create -n py4dstem python=3.9 anaconda &&\
-    . /home/user/.bashrc &&\
-    conda install -c conda-forge py4dstem &&\
-    conda install -c conda-forge pymatgen &&\
-    #optional but recomended
-    conda install jupyterlab cupy cudatoolkit
+    conda init bash &&\
+    echo "conda activate py4dstem" >> /home/user/.bashrc &&\
+    conda config --set auto_activate_base false &&\
+    conda create -n py4dstem -c conda-forge python=3.9 \
+    py4dstem\
+    pymatgen\
+    jupyterlab\
+    cupy\
+    cudatoolkit
