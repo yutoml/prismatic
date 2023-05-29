@@ -1,28 +1,39 @@
 FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
 
-ENV ANACONDA_VERSION 2021.05
-ENV ANACONDA_MD5 25e3ebae8905450ddac0f5c93f89c467
+ENV ANACONDA_VERSION 2023.03-1
+ENV ANACONDA_SHA256 95102d7c732411f1458a20bdf47e4c1b0b6c8a21a2edfe4052ca370aaae57bab
 
 # Create non-root user, install dependencies, install Anaconda
-RUN addgroup -S anaconda && \
-    adduser -D -u 10151 anaconda -G anaconda && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget
-
-RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-$ANACONDA_VERSION-Linux-x86_64.sh -O anaconda.sh && \
-    echo "${ANACONDA_MD5}  anaconda.sh" > anaconda.md5 && \
-    if ! md5sum -s -c anaconda.md5; then exit 1; fi && \
+ARG USERNAME=user
+ARG GROUPNAME=user
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID $GROUPNAME && \
+    useradd -m -s /bin/bash -u $UID -g $GID $USERNAME &&\
+    DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y --no-install-recommends wget &&\
+    wget --quiet https://repo.continuum.io/archive/Anaconda3-$ANACONDA_VERSION-Linux-x86_64.sh -O anaconda.sh && \
+    echo "${ANACONDA_SHA256}  anaconda.sh" > anaconda.sha256 && \
+    if ! sha256sum -c anaconda.sha256; then exit 1; fi && \
     mkdir -p /opt && \
     sh ./anaconda.sh -b -p /opt/conda && \
-    rm anaconda.sh anaconda.md5 && \
+    rm anaconda.sh anaconda.sha256 && \
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
-    chown -R anaconda /opt && \
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/anaconda/.profile && \
-    echo "conda activate base" >> /home/anaconda/.profile && \
+    chown -R user /opt && chown -R user /home/user &&\
     find /opt/conda/ -follow -type f -name '*.a' -delete && \
     find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
     /opt/conda/bin/conda clean -afy
 
-USER  10151
-ENV PATH "/bin:/sbin:/usr/bin"
+USER $USERNAME
+ENV PATH=/bin:/sbin:/usr/bin:/opt/conda/bin:$PATH
 
-CMD [ "sh", "--login", "-i" ]
+RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/user/.profile &&\
+    echo "export PATH=/bin:/sbin:/usr/bin:/opt/conda/bin:$PATH" >> /home/user/.bashrc &&\
+    echo "/opt/conda/bin/conda activate py4dstem" >> /home/user/.profile &&\
+    #/opt/conda/bin/conda init bash &&\
+    #conda update -n base -c defaults conda && \
+    conda create -n py4dstem python=3.9 anaconda &&\
+    . /home/user/.bashrc &&\
+    conda install -c conda-forge py4dstem &&\
+    conda install -c conda-forge pymatgen &&\
+    #optional but recomended
+    conda install jupyterlab cupy cudatoolkit
