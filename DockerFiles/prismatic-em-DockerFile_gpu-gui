@@ -1,16 +1,26 @@
 FROM yutoml/prismatic_base:1.1
 
+ARG USERNAME=user
+ARG GROUPNAME=user
+ARG UID=1000
+ARG GID=1000
+
 RUN apt-get update -y && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	pkg-config \
 	git \
 	qtbase5-dev &&\
-	rm -rf /var/lib/apt/lists/* 
-
-RUN git clone --branch dev https://github.com/yutoml/prismatic.git prismatic && \ 
+	rm -rf /var/lib/apt/lists/* &&\
+	git clone --branch dev https://github.com/yutoml/prismatic.git prismatic && \ 
 	cd prismatic && \
 	mkdir build && \
 	cd build && \
-	cmake ../ -DPRISMATIC_ENABLE_GPU=1 -DFFTW_INCLUDE_DIRS=/usr/local/fftw/include/ -DFFTW_ROOT=/usr/local/fftw/ -DPRISMATIC_ENABLE_CLI=1 -DPRISMATIC_ENABLE_GUI=1  &&\
+	cmake ../ -DPRISMATIC_ENABLE_GPU=1 -DPRISMATIC_ENABLE_CLI=1 -DPRISMATIC_ENABLE_GUI=1 -DFFTW_INCLUDE_DIRS=/usr/local/fftw/include/ -DFFTW_ROOT=/usr/local/fftw/ &&\
 	make -j$(nproc) &&\
-	make install
+	make install &&\
+	groupadd -g $GID $GROUPNAME && \
+	useradd -m -s /bin/bash -u $UID -g $GID $USERNAME
+
+USER $UID
+RUN echo "PATH=/local/usr/bin:$PATH" >> /home/user/.bashrc
+WORKDIR /home/user
