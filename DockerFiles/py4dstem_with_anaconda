@@ -37,3 +37,6 @@ RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/user/.bashrc &&\
     jupyterlab\
     cupy\
     cudatoolkit
+
+WORKDIR /home/user
+CMD conda run --live-stream -n py4dstem jupyter lab --no-browser --port=8888 --ip=* --allow-root --NotebookApp.token=''
