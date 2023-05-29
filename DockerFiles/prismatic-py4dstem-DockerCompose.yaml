@@ -1,0 +1,21 @@
+# TODO : Add Volumes
+
+version: '3'
+services:
+
+  prismatic:
+    image: yutoml/prismatic_gpu-gui:1.1
+    container_name: prismatic
+    restart: always
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    tty: true
+
+  py4dstem:
+    image: yutoml/py4dstem:1.0
+    container_name: py4dstem
+    restart: always
+    ports:
+      - "8888:8888"
